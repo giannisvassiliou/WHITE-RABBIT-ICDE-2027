@@ -1,0 +1,48 @@
+Select exactly {epel} nodes.
+
+Do not create your own nodes. Choose only from the available nodes in:
+
+{lista}
+
+Select the nodes that are most semantically related to the target node:
+
+{target_node}
+
+and/or those that are most likely to lead to the target node.
+
+Assign each selected node a proximity score with three decimal places.
+
+Scoring guidelines:
+
+If a node is not closely related to the target, give it a score below 0.4.
+If a node is strongly related to the target, give it a score above 0.7.
+Choose the nodes with the highest scores.
+
+Do not select nodes that represent generic categories; select only real entities.
+
+Return the results as:
+
+node,score
+
+where the score ranges from:
+
+0.0 = completely irrelevant
+1.0 = identical or extremely relevant
+
+Special rules:
+
+If the node contains the target word itself, assign a score of 1.0.
+If the exact target node appears in the list, assign it a score of 500.0.
+Do not add explanations or comments.
+
+Output format:
+
+entity1,score#entity2,score#entity3,score...
+
+Use # as the separator and do not include headers.
+
+If fewer than {epel} suitable nodes are available, return only those available.
+
+Do not invent entities from your own knowledge that are not present in the provided list.
+
+Even if only one valid node exists, return it.
